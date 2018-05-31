@@ -21,6 +21,11 @@ CompletableFuture<java.lang.String> sayHiAsync(java.lang.String name);
 
 To use this extension, add the following configuration to your pom:
 ```xml
+           <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo-async-processer</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
