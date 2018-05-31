@@ -21,7 +21,7 @@ CompletableFuture<java.lang.String> sayHiAsync(java.lang.String name);
 
 To use this extension, add the following configuration to your pom:
 ```xml
-<plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
