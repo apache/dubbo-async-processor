@@ -3,23 +3,15 @@ Async source processor for Dubbo service.
 
 This extension provides a more convenient way to use Dubbo service on consumer side by adding future-style counterpart for each sync method.
 
-For example, you have a normal Dubbo service define as following:
+For example, you have a normal Dubbo service, you have to do the following three steps:**(Please notice that all these should be done by developers defining the interface, normally it's service provider on Dubbo)**
+1. Add @DubboAsync to your interface.
 ```java
 @DubboAsync
 public interface GreetingsService {
     String sayHi(String name);
 }
 ```
-The processor can help you to generate an Async Dubbo service:
-```java
-@javax.annotation.Generated("com.alibaba.dubbo.async.processor.AsyncAnnotationProcessor")
-@com.alibaba.dubbo.config.annotation.AsyncFor(com.alibaba.dubbo.samples.api.GreetingsService.class)
-public interface GreetingsServiceAsync extends GreetingsService {
-CompletableFuture<java.lang.String> sayHiAsync(java.lang.String name);
-}
-```
-
-To use this extension, add the following configuration to your pom:
+2. Add the following configuration to your pom:
 ```xml
            <dependency>
                 <groupId>com.alibaba</groupId>
@@ -42,4 +34,13 @@ To use this extension, add the following configuration to your pom:
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
+```
+
+3. Now you can package your service (xxx-api.jar) as normal, the processor will help you generating an Async Dubbo service besides the sync interface:
+```java
+@javax.annotation.Generated("com.alibaba.dubbo.async.processor.AsyncAnnotationProcessor")
+@com.alibaba.dubbo.config.annotation.AsyncFor(com.alibaba.dubbo.samples.api.GreetingsService.class)
+public interface GreetingsServiceAsync extends GreetingsService {
+CompletableFuture<java.lang.String> sayHiAsync(java.lang.String name);
+}
 ```
