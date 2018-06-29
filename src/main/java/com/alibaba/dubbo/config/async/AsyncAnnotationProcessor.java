@@ -310,7 +310,7 @@ public class AsyncAnnotationProcessor extends AbstractProcessor {
         result.append("package ").append(packageName).append(";\n");
         result.append("import java.util.concurrent.CompletableFuture;\n");
         result.append("@javax.annotation.Generated(\"com.alibaba.dubbo.async.processor.AsyncAnnotationProcessor\")\n");
-        result.append("@com.alibaba.dubbo.config.annotation.AsyncFor(").append(qualifiedName).append(".class)\n");
+        result.append("@org.apache.dubbo.common.config.AsyncFor(").append(qualifiedName).append(".class)\n");
         result.append("public interface ").append(className).append("Async extends ").append(className).append(" {\n");
     }
 
