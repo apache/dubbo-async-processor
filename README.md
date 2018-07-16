@@ -37,10 +37,11 @@ public interface GreetingsService {
 ```
 
 3. Now you can package your service (xxx-api.jar) as normal, the processor will help you generating an Async Dubbo service besides the sync interface:
+
 ```java
 @javax.annotation.Generated("com.alibaba.dubbo.async.processor.AsyncAnnotationProcessor")
 @com.alibaba.dubbo.config.annotation.AsyncFor(com.alibaba.dubbo.samples.api.GreetingsService.class)
 public interface GreetingsServiceAsync extends GreetingsService {
-CompletableFuture<java.lang.String> sayHiAsync(java.lang.String name);
+    CompletableFuture<java.lang.String> sayHiAsync(java.lang.String name);
 }
 ```
