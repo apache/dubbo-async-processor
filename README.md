@@ -34,3 +34,14 @@ I think we can try to realize it by referencing [lombok](https://projectlombok.o
 # Conclude
 The essential part is to overwrite a new async method. 
 Another way would be to generate a new method with a different name, for example, `sayHiAsync`, then we can get rid of `AsyncSignal`. But there's an obvious flaw of this approach, that is, all method level configurators and routers defined to `sayHi` will not take effect anymore.
+
+```java
+public interface GreetingsService {
+    String sayHi(String name);
+    
+    // Any name is ok
+    default CompletableFuture<String> sayHiAsync(String name) {
+        return CompletableFuture.completedFuture(sayHi(name));
+    }
+}
+```
