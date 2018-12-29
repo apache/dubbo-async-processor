@@ -1,5 +1,5 @@
 # Introduction
-There will have two parts in this repo
+We plan to include two parts in this repo
  * AsyncSignal, specially designed to distinguish async method.
  * A compiler hacker processer that is able to generate async counterpart for each method in you Dubbo service interface.
  
